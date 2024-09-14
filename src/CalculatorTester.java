@@ -6,6 +6,7 @@ public class CalculatorTester {
         success &= testMult();
         success &= testDiff();
         success &= testDiv();
+        success &= testDivZero();
         success &= testClearValue();
         success &= testIncorrectOperation();
 
@@ -55,6 +56,17 @@ public class CalculatorTester {
         } catch (Exception e) {}
 
         return calculator.getValue() == 5;
+    }
+
+    private boolean testDivZero() {
+        System.out.println("    Проверяем деление на 0");
+        Calculator calculator = new Calculator(10);
+
+        try {
+            calculator.calculate('/', 0);
+        } catch (Exception e) { return true;}
+
+        return false;
     }
 
     private boolean testClearValue() {

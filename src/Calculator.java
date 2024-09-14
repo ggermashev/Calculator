@@ -34,6 +34,9 @@ public class Calculator {
                 break;
 
             case '/':
+                if (operand == 0) {
+                    throw new Exception("Нельзя делить на 0!");
+                }
                 this.value /= operand;
                 break;
         }
